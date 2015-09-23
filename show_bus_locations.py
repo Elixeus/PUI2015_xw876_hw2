@@ -6,7 +6,6 @@ if __name__=='__main__':
     url = ('http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json?key=%s&VehicleMonitoringDetailLevel=calls&LineRef=%s' \
            % (sys.argv[1], sys.argv[2]))
     request = urllib2.urlopen(url)
-    print request
     metadata = json.loads(request.read())
     VMD = metadata["Siri"]["ServiceDelivery"]["VehicleMonitoringDelivery"][0]\
                   ["VehicleActivity"]
