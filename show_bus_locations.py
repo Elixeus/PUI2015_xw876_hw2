@@ -2,8 +2,6 @@ import sys
 import urllib2
 import json
 
-locations = []
-
 if __name__=='__main__':    
     url = ('http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json?key=%s&VehicleMonitoringDetailLevel=calls&LineRef=%s' \
            % (sys.argv[1], sys.argv[2]))
@@ -14,6 +12,7 @@ if __name__=='__main__':
                   ["VehicleActivity"]
     lineNumber = sys.argv[2]
     print 'Bus Line: %s' % (lineNumber)
+    locations = []
     for item in VMD:
             locations.append(item["MonitoredVehicleJourney"]\
                                  ["VehicleLocation"])
