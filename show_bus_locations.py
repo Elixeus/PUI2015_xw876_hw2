@@ -10,7 +10,7 @@ if __name__=='__main__':
     metadata = json.loads(request.read())
     VMD = (metadata["Siri"]["ServiceDelivery"]
                    ["VehicleMonitoringDelivery"][0]
-                   ["VehicleActivity"]) 
+                   ["VehicleActivity"])
     lineNumber = sys.argv[2]
     print 'Bus Line: %s' % (lineNumber)
     locations = []
