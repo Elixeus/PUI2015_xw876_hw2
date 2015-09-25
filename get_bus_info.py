@@ -4,11 +4,12 @@ import json
 import csv
 
 if __name__=='__main__':
-    url = ('http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json?key=%s&VehicleMonitoringDetailLevel=calls&LineRef=%s' \
+    url = ('http://api.prod.obanyc.com/api/siri/vehicle-monitoring.json?'
+           'key=%s&VehicleMonitoringDetailLevel=calls&LineRef=%s'
             % (sys.argv[1], sys.argv[2]))
     request = urllib2.urlopen(url)
     metadata = json.loads(request.read())
-    VA = metadata["Siri"]["ServiceDelivery"]["VehicleMonitoringDelivery"]\
+    VA = metadata["Siri"]["ServiceDelivery"]["VehicleMonitoringDelivery"]
                  [0]["VehicleActivity"]
     with open(sys.argv[3], 'w') as busdatacsv:
         buswriter = csv.writer(busdatacsv, delimiter = ',')
