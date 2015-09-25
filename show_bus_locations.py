@@ -16,7 +16,7 @@ if __name__=='__main__':
     locations = []
     for item in VMD:
             locations.append((item["MonitoredVehicleJourney"]
-                                 ["VehicleLocation"]))
+                                  ["VehicleLocation"]))
     busNumber = len(locations)
     print 'Number of Active Buses : %i' % busNumber
     for j in range(busNumber):
