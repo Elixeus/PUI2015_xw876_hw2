@@ -7,14 +7,15 @@ if __name__=='__main__':
            % (sys.argv[1], sys.argv[2]))
     request = urllib2.urlopen(url)
     metadata = json.loads(request.read())
-    VMD = metadata["Siri"]["ServiceDelivery"]["VehicleMonitoringDelivery"][0]\
-                  ["VehicleActivity"]
+    VMD = (metadata["Siri"]["ServiceDelivery"]
+                   ["VehicleMonitoringDelivery"][0]
+                   ["VehicleActivity"])
     lineNumber = sys.argv[2]
     print 'Bus Line: %s' % (lineNumber)
     locations = []
     for item in VMD:
-            locations.append(item["MonitoredVehicleJourney"]\
-                                 ["VehicleLocation"])
+            locations.append((item["MonitoredVehicleJourney"]
+                                 ["VehicleLocation"]))
     busNumber = len(locations)
     print 'Number of Active Buses : %i' % busNumber
     for j in range(busNumber):
